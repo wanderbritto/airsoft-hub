@@ -2,7 +2,8 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const cors = require('cors');
 const path = require('path');
-
+// Configuração para deploy
+const PORT = process.env.PORT || 3000;
 const app = express();
 const port = 3000;
 
@@ -310,8 +311,9 @@ app.get('/', (req, res) => {
 });
 
 // Iniciar servidor
-app.listen(port, () => {
-  console.log(`\n🚀 Servidor rodando em http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`\n🚀 Servidor rodando em http://localhost:${PORT}`);
   console.log(`📧 Admin: admin@airsoft.com`);
-  console.log(`🔑 Senha: admin123\n`);
+  console.log(`🔑 Senha: admin123`);
+  console.log(`✅ Database: ${process.env.DATABASE_URL || './database/airsoft.db'}\n`);
 });
