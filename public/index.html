@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airsoft Hub - Sistema de Inscrições</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para a página de login */
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Hero Background com overlay militar */
+        .hero-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 47, 20, 0.95) 0%, rgba(45, 74, 34, 0.95) 100%);
+            z-index: -2;
+        }
+
+        .hero-overlay::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path d="M10,10 L20,20 M30,15 L40,25 M50,10 L60,20 M70,15 L80,25 M15,50 L25,60 M35,55 L45,65 M55,50 L65,60 M75,55 L85,65 M10,80 L20,90 M50,80 L60,90" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="3" fill="white"/><circle cx="20" cy="80" r="3" fill="white"/><circle cx="80" cy="30" r="3" fill="white"/><circle cx="30" cy="30" r="2" fill="white"/><circle cx="70" cy="70" r="2" fill="white"/><circle cx="85" cy="85" r="2" fill="white"/></svg>');
+            background-repeat: repeat;
+            pointer-events: none;
+        }
+
+        /* Top Bar Moderna */
+        .top-bar {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-text h2 {
+            color: var(--gold);
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .logo-text p {
+            color: var(--military-sand);
+            font-size: 11px;
+            margin: 0;
+        }
+
+        .info-items {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            font-size: 13px;
+        }
+
+        .info-item .label {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Container Principal */
+        .main-login-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Card Premium */
+        .premium-card {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            overflow: hidden;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+
+        /* Card Header */
+        .card-header-premium {
+            background: linear-gradient(135deg, #4a6b2f 0%, #2d4a22 100%);
+            padding: 35px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header-premium::before {
+            content: "⚔️";
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            font-size: 120px;
+            opacity: 0.1;
+        }
+
+        .card-header-premium h1 {
+            color: #ffd700;
+            font-size: 28px;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .card-header-premium p {
+            color: #c4a47c;
+            font-size: 14px;
+        }
+
+        .military-stars {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .military-stars span {
+            color: #ffd700;
+            font-size: 12px;
+        }
+
+        /* Card Body */
+        .card-body-premium {
+            padding: 35px;
+        }
+
+        /* Form Groups Estilizados */
+        .form-group-premium {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-group-premium label {
+            display: block;
+            margin-bottom: 8px;
+            color: #c4a47c;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .form-group-premium input {
+            width: 100%;
+            padding: 14px 15px 14px 45px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .form-group-premium input:focus {
+            outline: none;
+            border-color: #ffd700;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        .form-group-premium input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Botão Principal */
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+            border: none;
+            border-radius: 12px;
+            color: #1a2f14;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Separador */
+        .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 25px 0;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .separator span {
+            margin: 0 15px;
+        }
+
+        /* Link de Cadastro */
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .register-link p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        .register-link a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Admin Link */
+        .admin-link {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-link a {
+            color: #8b0000;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .admin-link a:hover {
+            color: #ff4444;
+        }
+
+        /* Card de Cadastro */
+        .cadastro-content {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .cadastro-content::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .cadastro-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .cadastro-content::-webkit-scrollbar-thumb {
+            background: #ffd700;
+            border-radius: 10px;
+        }
+
+        /* Botão Secundário */
+        .btn-secondary-premium {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 12px;
+        }
+
+        .btn-secondary-premium:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: #ffd700;
+        }
+
+        /* Badge de Destaque */
+        .feature-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .premium-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Form Row para cadastro */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 0;
+        }
+
+        /* Mensagem Toast */
+        .mensagem {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .mensagem.sucesso {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .mensagem.erro {
+            background: #e74c3c;
+            color: white;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .info-items {
+                justify-content: center;
+            }
+
+            .card-header-premium h1 {
+                font-size: 24px;
+            }
+
+            .card-body-premium {
+                padding: 25px;
+            }
+
+            .card-header-premium {
+                padding: 25px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-overlay"></div>
+
+    <div class="login-page">
+        <!-- Top Bar com Informações -->
+        <div class="top-bar">
+            <div class="container">
+                                <div class="logo-area">
+                    <img src="/logo-site.png" alt="Airsoft Hub Logo" style="height: 60px; width: auto; border-radius: 12px;" onerror="this.style.display='none'">
+                    <div class="logo-text">
+                        <h2 style="font-size: 24px;">AIRSOFT HUB</h2>
+                        <p>Sistema de Operações Táticas</p>
+                    </div>
+                </div>  
+                <div class="info-items">
+                    <div class="info-item">
+                        <span>🏆</span>
+                        <span class="label">Próximo Jogo:</span>
+                        <span id="proximoJogo">Carregando...</span>
+                    </div>
+                    <div class="info-item">
+                        <span>📅</span>
+                        <span class="label">Últimos Jogos:</span>
+                        <span id="ultimosJogos">Carregando...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container Principal -->
+        <div class="main-login-container">
+            <!-- Card de Login -->
+            <div class="premium-card" id="loginCard">
+                <div class="card-header-premium">
+                    <div class="feature-badge">
+                        <span>🔐</span> ÁREA RESTRITA
+                    </div>
+                    <h1>🎯 ACESSO AO SISTEMA</h1>
+                    <p>Entre com suas credenciais de operador</p>
+                    <div class="military-stars">
+                        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+                <div class="card-body-premium">
+                    <form id="loginForm">
+                        <div class="form-group-premium">
+                            <label>📧 ENDEREÇO DE E-MAIL</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">📧</span>
+                                <input type="email" id="loginEmail" required placeholder="seu@email.com">
+                            </div>
+                        </div>
+                        <div class="form-group-premium">
+                            <label>🔒 SENHA DE ACESSO</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="loginSenha" required placeholder="********">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-login">
+                            <span>⚡</span> ENTRAR NO SISTEMA <span>→</span>
+                        </button>
+                    </form>
+                    
+                    <div class="separator">
+                        <span>ou</span>
+                    </div>
+                    
+                    <div class="register-link">
+                        <p>Não possui credenciais de acesso?</p>
+                        <a href="#" onclick="mostrarCadastro()">📝 Cadastre-se no sistema</a>
+                    </div>
+                    
+                    <div class="admin-link">
+                        <a href="/admin.html">🔐 Área Administrativa</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card de Cadastro -->
+            <div class="premium-card" id="cadastroCard" style="display: none;">
+                <div class="card-header-premium">
+                    <div class="feature-badge">
+                        <span>📝</span> NOVO RECRUTA
+                    </div>
+                    <h1>📋 CRIAR CONTA</h1>
+                    <p>Preencha seus dados para se cadastrar</p>
+                    <div class="military-stars">
+                        <span>★</span><span>★</span><span>★</span>
+                    </div>
+                </div>
+                <div class="card-body-premium cadastro-content">
+                    <form id="cadastroForm">
+                        <div class="form-row">
+                            <div class="form-group-premium">
+                                <label>👤 NOME COMPLETO</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">👤</span>
+                                    <input type="text" id="cadNome" required placeholder="Seu nome completo">
+                                </div>
+                            </div>
+                            <div class="form-group-premium">
+                                <label>📅 DATA DE NASCIMENTO</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">📅</span>
+                                    <input type="date" id="cadDataNasc" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group-premium">
+                                <label>📱 TELEFONE</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">📱</span>
+                                    <input type="tel" id="cadTelefone" required placeholder="(11) 99999-9999">
+                                </div>
+                            </div>
+                            <div class="form-group-premium">
+                                <label>🏠 ENDEREÇO</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">🏠</span>
+                                    <input type="text" id="cadEndereco" required placeholder="Seu endereço">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group-premium">
+                            <label>⚔️ NOME DA EQUIPE</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">⚔️</span>
+                                <input type="text" id="cadEquipe" placeholder="Sua equipe (opcional)">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group-premium">
+                                <label>📧 E-MAIL</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">📧</span>
+                                    <input type="email" id="cadEmail" required placeholder="seu@email.com">
+                                </div>
+                            </div>
+                            <div class="form-group-premium">
+                                <label>🔒 SENHA</label>
+                                <div class="input-with-icon">
+                                    <span class="input-icon">🔒</span>
+                                    <input type="password" id="cadSenha" required placeholder="********">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-login">
+                            <span>✓</span> REALIZAR CADASTRO <span>→</span>
+                        </button>
+                        <button type="button" onclick="mostrarLogin()" class="btn-secondary-premium">
+                            ← VOLTAR PARA LOGIN
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Airsoft Arena - Sistema de Gerenciamento de Operações Táticas</p>
+        </div>
+    </div>
+
+    <!-- Mensagem de status -->
+    <div id="mensagem" class="mensagem"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
