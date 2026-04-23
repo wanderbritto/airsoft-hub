@@ -4,15 +4,15 @@
   "description": "Sistema de inscrições para jogos de Airsoft",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node backend/server.js"
+    "start": "node backend/server.js",
+    "postinstall": "npm rebuild sqlite3"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "sqlite3": "^5.1.6",
-    "cors": "^2.8.5"
+    "better-sqlite3": "^12.9.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": "20.x"
   }
 }
