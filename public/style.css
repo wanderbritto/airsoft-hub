@@ -5,31 +5,52 @@
 
 /* Variáveis */
 :root {
-    --military-green: #2d4a22;
-    --military-dark: #1a2f14;
-    --military-brown: #6b4423;
-    --military-sand: #c4a47c;
-    --army-patch: #4a6b2f;
+    --primary: #2ecc71;
+    --danger: #e74c3c;
+    --warning: #f39c12;
     --gold: #ffd700;
-    --danger: #dc3545;
-    --success: #28a745;
-    --warning: #ffc107;
     --dark: #1a1a2e;
-    --gray: #2d2d44;
-    --light-gray: #e0e0e0;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    min-height: 100vh;
+    background: #0f0f1a;
     color: #fff;
+}
+
+/* Aplicar as novas cores nos elementos */
+.welcome-section h1,
+.stat-number,
+.game-title,
+.inscricao-titulo,
+.modal h2,
+.section-title {
+    color: var(--gold) !important;
+}
+
+.tab-btn.active {
+    background: var(--gold) !important;
+    color: #1a1a2e !important;
+}
+
+.btn-inscrever,
+.btn-primary,
+.modal-btn.confirm {
+    background: var(--primary) !important;
+}
+
+.logout-btn,
+.admin-badge,
+.btn-admin {
+    background: rgba(231,76,60,0.2) !important;
+    color: var(--danger) !important;
+}
+
+.progress-fill {
+    background: var(--primary) !important;
+}
+
+.price-tag {
+    background: var(--primary) !important;
 }
 
 /* ========================================
