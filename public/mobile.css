@@ -1,6 +1,6 @@
 /* ========================================
-   AIRSOFT HUB - MOBILE PREMIUM
-   Versão final otimizada
+   AIRSOFT HUB - MOBILE COMPLETO
+   Inclui Dashboard + Admin + todas as páginas
    ======================================== */
 
 * {
@@ -21,18 +21,18 @@ body {
     color: #fff;
 }
 
-/* Container */
-.dashboard-container {
+/* ========== CONTAINERS ========== */
+.dashboard-container, .admin-container {
     max-width: 100% !important;
-    padding: 16px 12px !important;
+    padding: 12px !important;
 }
 
-/* Header */
+/* ========== HEADER (Dashboard e Admin) ========== */
 .military-header {
     background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%) !important;
     border-radius: 20px !important;
     padding: 16px 12px !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 16px !important;
     border: 1px solid rgba(255,215,0,0.15) !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
 }
@@ -65,7 +65,6 @@ body {
     font-size: 20px !important;
     color: var(--gold) !important;
     margin: 0 !important;
-    letter-spacing: 0.5px !important;
 }
 
 .welcome-section p {
@@ -108,6 +107,16 @@ body {
     font-weight: 600 !important;
 }
 
+/* Botão do header admin */
+.btn-nav {
+    background: rgba(255,215,0,0.15) !important;
+    padding: 6px 16px !important;
+    border-radius: 30px !important;
+    font-size: 11px !important;
+    color: var(--gold) !important;
+    border: none !important;
+}
+
 .military-header > div:last-child {
     border-top: 1px solid rgba(255,215,0,0.15) !important;
     margin-top: 12px !important;
@@ -124,12 +133,12 @@ body {
     color: var(--gold) !important;
 }
 
-/* Stats cards */
-.quick-stats {
+/* ========== STATS CARDS ========== */
+.quick-stats, .stats-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 12px !important;
-    margin-bottom: 24px !important;
+    margin-bottom: 20px !important;
 }
 
 .stat-card {
@@ -140,17 +149,13 @@ body {
     border: 1px solid rgba(255,255,255,0.05) !important;
 }
 
-.stat-card:active {
-    transform: scale(0.97);
-}
-
 .stat-icon {
     font-size: 24px !important;
     margin-bottom: 8px !important;
 }
 
 .stat-number {
-    font-size: 26px !important;
+    font-size: 24px !important;
     font-weight: 800 !important;
     color: var(--gold) !important;
 }
@@ -164,13 +169,12 @@ body {
     letter-spacing: 0.5px !important;
 }
 
-/* Tabs */
+/* ========== TABS (Dashboard) ========== */
 .military-tabs {
     background: rgba(255,255,255,0.05) !important;
     border-radius: 40px !important;
     padding: 4px !important;
-    margin-bottom: 24px !important;
-    border: none !important;
+    margin-bottom: 20px !important;
 }
 
 .tab-btn {
@@ -186,7 +190,97 @@ body {
 .tab-btn.active {
     background: var(--gold) !important;
     color: #1a1a2e !important;
-    box-shadow: 0 2px 8px rgba(255,215,0,0.3) !important;
+}
+
+/* ========== TABS (Admin) ========== */
+.admin-container .military-tabs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0 !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin-bottom: 20px !important;
+    border-bottom: 1px solid rgba(255,215,0,0.2) !important;
+    border-radius: 0 !important;
+}
+
+.admin-container .military-tab {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 10px 8px !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    color: rgba(255,255,255,0.5) !important;
+    border-bottom: 2px solid transparent !important;
+}
+
+.admin-container .military-tab.active {
+    color: var(--gold) !important;
+    border-bottom: 2px solid var(--gold) !important;
+}
+
+/* ========== FORMULÁRIOS ========== */
+.create-game-form {
+    background: rgba(255,255,255,0.05) !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.form-title {
+    font-size: 14px !important;
+    margin-bottom: 16px !important;
+    padding-left: 10px !important;
+    border-left: 3px solid var(--gold) !important;
+}
+
+.form-group {
+    margin-bottom: 14px !important;
+}
+
+.form-group label {
+    font-size: 11px !important;
+    margin-bottom: 6px !important;
+    display: block !important;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100% !important;
+    padding: 10px !important;
+    font-size: 12px !important;
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(255,255,255,0.1) !important;
+    border-radius: 10px !important;
+    color: #fff !important;
+}
+
+.form-row {
+    flex-direction: column !important;
+    gap: 14px !important;
+}
+
+/* ========== BOTÕES ========== */
+.btn-primary, .btn-login {
+    width: 100% !important;
+    padding: 12px !important;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+}
+
+.btn-admin {
+    padding: 8px 14px !important;
+    font-size: 11px !important;
+    border-radius: 25px !important;
+}
+
+.admin-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
 }
 
 /* Admin panel */
@@ -200,28 +294,11 @@ body {
 
 .admin-panel h3 {
     font-size: 12px !important;
-    color: var(--danger) !important;
-    margin-bottom: 10px !important;
     text-align: center !important;
+    margin-bottom: 12px !important;
 }
 
-.admin-actions {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 8px !important;
-}
-
-.btn-admin {
-    background: rgba(231,76,60,0.2) !important;
-    padding: 8px 14px !important;
-    border-radius: 25px !important;
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    color: var(--danger) !important;
-}
-
-/* Seção de jogos */
+/* ========== JOGOS ========== */
 .section-title {
     font-size: 15px !important;
     margin-bottom: 14px !important;
@@ -233,7 +310,52 @@ body {
     gap: 12px !important;
 }
 
-/* Empty state */
+.game-card, .game-card-admin {
+    background: rgba(255,255,255,0.05) !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+}
+
+.game-card-header {
+    padding: 12px !important;
+}
+
+.game-title {
+    font-size: 14px !important;
+}
+
+.game-card-body {
+    padding: 12px !important;
+}
+
+.game-info {
+    font-size: 11px !important;
+    margin-bottom: 8px !important;
+}
+
+.btn-inscrever {
+    padding: 8px !important;
+    font-size: 12px !important;
+}
+
+/* ========== MODAL ========== */
+.modal-content {
+    padding: 20px !important;
+    width: 90% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+}
+
+.modal-buttons {
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.modal-btn {
+    width: 100% !important;
+}
+
+/* ========== EMPTY STATE ========== */
 .empty-state {
     padding: 30px 20px !important;
 }
@@ -245,7 +367,6 @@ body {
 
 .empty-state h3 {
     font-size: 14px !important;
-    margin-bottom: 5px !important;
 }
 
 .empty-state p {
