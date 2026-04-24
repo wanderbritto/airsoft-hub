@@ -396,3 +396,9 @@ body {
 .empty-state p {
     font-size: 11px !important;
 }
+
+/* Remover a espada cruzada do header no celular */
+.military-header::before {
+    display: none !important;
+    content: none !important;
+}
