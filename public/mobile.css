@@ -30,43 +30,101 @@ body {
     padding: 12px !important;
 }
 
-/* Header compacto */
+/* ========================================
+   HEADER COMPLETAMENTE CORRIGIDO PARA CELULAR
+   ======================================== */
+
+/* Container principal do header */
 .military-header {
     padding: 12px !important;
     margin-bottom: 12px !important;
-}
-
-.header-top {
-    flex-direction: column !important;
     text-align: center !important;
-    gap: 10px !important;
 }
 
+/* Topo do header - centralizar tudo */
+.header-top {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 12px !important;
+    margin-bottom: 10px !important;
+}
+
+/* Seção da logo e nome */
+.welcome-section {
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.welcome-section > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+/* Logo */
+.welcome-section img {
+    height: 50px !important;
+    width: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+}
+
+/* Nome do site */
 .welcome-section h1 {
-    font-size: 18px !important;
+    font-size: 20px !important;
+    margin: 0 !important;
+    text-align: center !important;
 }
 
 .welcome-section p {
     display: none !important;
 }
 
-.welcome-section img {
-    height: 40px !important;
-}
-
+/* Seção do rank e botões */
 .rank-section {
     text-align: center !important;
+    width: 100% !important;
 }
 
+/* Badge de rank */
 .rank-badge {
+    display: inline-block !important;
     font-size: 10px !important;
-    padding: 4px 10px !important;
+    padding: 4px 12px !important;
+    margin-bottom: 8px !important;
 }
 
+/* Botão de logout */
 .logout-btn {
-    padding: 6px 15px !important;
+    display: inline-block !important;
+    padding: 6px 16px !important;
     font-size: 12px !important;
-    margin-top: 5px !important;
+    margin-top: 0 !important;
+}
+
+/* Admin badge */
+.admin-badge {
+    display: inline-block !important;
+    margin-left: 0 !important;
+    margin-right: 5px !important;
+    font-size: 9px !important;
+    padding: 3px 10px !important;
+}
+
+/* Texto de boas-vindas */
+.military-header > div:last-child {
+    text-align: center !important;
+    margin-top: 10px !important;
+    padding-top: 8px !important;
+}
+
+.military-header > div:last-child p {
+    font-size: 12px !important;
 }
 
 /* Stats cards - 2 colunas */
