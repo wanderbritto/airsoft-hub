@@ -620,6 +620,17 @@
             }
         }
     </style>
+
+    <script>
+    // Detectar se é celular e carregar CSS específico
+    if (window.innerWidth <= 768) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/mobile.css';
+        document.head.appendChild(link);
+    }
+</script>
+
 </head>
 <body>
     <div class="dashboard-container">

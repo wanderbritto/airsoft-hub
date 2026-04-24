@@ -1,0 +1,447 @@
+/* ========================================
+   AIRSOFT HUB - LAYOUT EXCLUSIVO PARA CELULAR
+   Design tipo App nativo profissional
+   ======================================== */
+
+:root {
+    --primary: #2ecc71;
+    --primary-dark: #27ae60;
+    --secondary: #3498db;
+    --danger: #e74c3c;
+    --warning: #f39c12;
+    --dark: #1a1a2e;
+    --dark-light: #2d2d44;
+    --gray: #3d3d5c;
+    --light: #e0e0e0;
+    --gold: #ffd700;
+}
+
+/* Reset completo para mobile */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #0f0f1a;
+    color: #fff;
+}
+
+/* Container principal - estilo app */
+.app-container {
+    max-width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+}
+
+/* Header tipo App */
+.app-header {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.app-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.app-logo img {
+    height: 32px;
+    width: auto;
+}
+
+.app-logo span {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.app-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rank-icon {
+    background: rgba(255, 215, 0, 0.15);
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+.logout-icon {
+    background: rgba(231, 76, 60, 0.15);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--danger);
+    cursor: pointer;
+}
+
+/* Stats cards estilo app */
+.stats-grid-mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+}
+
+.stat-card-mobile {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 14px;
+    text-align: center;
+}
+
+.stat-icon-mobile {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.stat-number-mobile {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-label-mobile {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Tabs estilo app */
+.app-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 0 16px 16px;
+    border-radius: 30px;
+    padding: 4px;
+}
+
+.app-tab {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.app-tab.active {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
+}
+
+/* Lista de jogos estilo app */
+.jogos-list {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.jogo-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.jogo-item:active {
+    transform: scale(0.98);
+}
+
+.jogo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.jogo-titulo {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.jogo-tipo {
+    font-size: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.jogo-info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.jogo-vagas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.vagas-progress {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.vagas-fill {
+    background: var(--primary);
+    height: 100%;
+    border-radius: 10px;
+}
+
+.jogo-preco {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.btn-inscrever-mobile {
+    width: 100%;
+    background: var(--primary);
+    border: none;
+    padding: 10px;
+    border-radius: 12px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Admin panel compacto */
+.admin-panel-mobile {
+    background: rgba(231, 76, 60, 0.1);
+    margin: 16px;
+    padding: 14px;
+    border-radius: 16px;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.admin-title {
+    font-size: 13px;
+    color: var(--danger);
+    margin-bottom: 12px;
+}
+
+.admin-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.btn-admin-mobile {
+    background: rgba(231, 76, 60, 0.2);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    color: var(--danger);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Inscrições estilo app */
+.inscricoes-list {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.inscricao-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 14px;
+    border-left: 3px solid var(--primary);
+}
+
+.inscricao-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-bottom: 8px;
+}
+
+.inscricao-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Modal estilo app */
+.app-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-modal.active {
+    display: flex;
+}
+
+.app-modal-content {
+    background: #1a1a2e;
+    border-radius: 24px;
+    padding: 24px;
+    width: 85%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.app-modal-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.app-modal-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 12px;
+}
+
+.app-modal-text {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.app-modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.app-modal-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    border: none;
+}
+
+.app-modal-btn.confirm {
+    background: var(--primary);
+    color: #fff;
+}
+
+.app-modal-btn.cancel {
+    background: rgba(231, 76, 60, 0.2);
+    color: var(--danger);
+}
+
+/* Toast message */
+.app-toast {
+    position: fixed;
+    bottom: 80px;
+    left: 16px;
+    right: 16px;
+    background: var(--primary);
+    color: #fff;
+    padding: 12px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 13px;
+    z-index: 1001;
+    display: none;
+}
+
+/* Menu inferior tipo app (opcional) */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 10px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.nav-item.active {
+    color: var(--primary);
+    background: rgba(46, 204, 113, 0.1);
+}
+
+.nav-icon {
+    font-size: 20px;
+}
+
+/* Loading */
+.app-loading {
+    text-align: center;
+    padding: 40px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Empty state */
+.app-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.app-empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
