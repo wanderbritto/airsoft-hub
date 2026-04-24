@@ -1,9 +1,8 @@
 /* ========================================
-   AIRSOFT HUB - CSS MOBILE CORRETO
-   Compatível com as classes do dashboard.html
+   AIRSOFT HUB - CSS MOBILE COMPLETO
+   Versão corrigida e otimizada
    ======================================== */
 
-/* Reset e variáveis */
 * {
     margin: 0;
     padding: 0;
@@ -24,173 +23,195 @@ body {
     color: #fff;
 }
 
-/* Container responsivo */
+/* Container */
 .dashboard-container {
     max-width: 100% !important;
     padding: 12px !important;
 }
 
-/* ========================================
-   HEADER COMPLETAMENTE CORRIGIDO PARA CELULAR
-   ======================================== */
-
-/* Container principal do header */
+/* Header */
 .military-header {
-    padding: 12px !important;
-    margin-bottom: 12px !important;
-    text-align: center !important;
+    background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 100%) !important;
+    border-radius: 20px !important;
+    padding: 16px 12px !important;
+    margin-bottom: 16px !important;
+    border: 1px solid rgba(255,215,0,0.15) !important;
 }
 
-/* Topo do header - centralizar tudo */
 .header-top {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: center !important;
     text-align: center !important;
     gap: 12px !important;
-    margin-bottom: 10px !important;
 }
 
-/* Seção da logo e nome */
 .welcome-section {
     text-align: center !important;
-    width: 100% !important;
 }
 
 .welcome-section > div {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
 }
 
-/* Logo */
 .welcome-section img {
-    height: 50px !important;
+    height: 55px !important;
     width: auto !important;
-    display: block !important;
-    margin: 0 auto !important;
 }
 
-/* Nome do site */
 .welcome-section h1 {
-    font-size: 20px !important;
+    font-size: 22px !important;
+    color: var(--gold) !important;
     margin: 0 !important;
-    text-align: center !important;
 }
 
 .welcome-section p {
     display: none !important;
 }
 
-/* Seção do rank e botões */
 .rank-section {
-    text-align: center !important;
-    width: 100% !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
 }
 
-/* Badge de rank */
 .rank-badge {
-    display: inline-block !important;
-    font-size: 10px !important;
-    padding: 4px 12px !important;
-    margin-bottom: 8px !important;
+    background: rgba(255,215,0,0.15) !important;
+    padding: 5px 14px !important;
+    border-radius: 30px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    color: var(--gold) !important;
 }
 
-/* Botão de logout */
-.logout-btn {
-    display: inline-block !important;
-    padding: 6px 16px !important;
-    font-size: 12px !important;
-    margin-top: 0 !important;
-}
-
-/* Admin badge */
 .admin-badge {
-    display: inline-block !important;
-    margin-left: 0 !important;
-    margin-right: 5px !important;
-    font-size: 9px !important;
-    padding: 3px 10px !important;
+    background: rgba(231,76,60,0.2) !important;
+    padding: 5px 12px !important;
+    border-radius: 30px !important;
+    font-size: 10px !important;
+    color: var(--danger) !important;
 }
 
-/* Texto de boas-vindas */
+.logout-btn {
+    background: rgba(231,76,60,0.15) !important;
+    border: none !important;
+    padding: 5px 16px !important;
+    border-radius: 30px !important;
+    color: var(--danger) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
 .military-header > div:last-child {
-    text-align: center !important;
-    margin-top: 10px !important;
+    border-top: 1px solid rgba(255,215,0,0.15) !important;
+    margin-top: 12px !important;
     padding-top: 8px !important;
+    text-align: center !important;
 }
 
 .military-header > div:last-child p {
     font-size: 12px !important;
+    color: rgba(255,255,255,0.7) !important;
 }
 
-/* Stats cards - 2 colunas */
+.military-header > div:last-child strong {
+    color: var(--gold) !important;
+}
+
+/* Stats cards */
 .quick-stats {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 10px !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 20px !important;
 }
 
 .stat-card {
-    background: rgba(255, 255, 255, 0.05) !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%) !important;
     border-radius: 14px !important;
-    padding: 10px !important;
+    padding: 12px 8px !important;
     text-align: center !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
 }
 
 .stat-icon {
     font-size: 22px !important;
-    margin-bottom: 4px !important;
+    margin-bottom: 6px !important;
 }
 
 .stat-number {
-    font-size: 22px !important;
+    font-size: 24px !important;
     font-weight: 700 !important;
-    color: var(--primary) !important;
+    color: var(--gold) !important;
 }
 
 .stat-label {
-    font-size: 9px !important;
-    color: rgba(255, 255, 255, 0.5) !important;
+    font-size: 10px !important;
+    color: rgba(255,255,255,0.5) !important;
     margin-top: 4px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
 }
 
-/* Tabs menores */
+/* Tabs */
 .military-tabs {
-    margin-bottom: 16px !important;
-    gap: 6px !important;
+    background: rgba(255,255,255,0.03) !important;
+    border-radius: 40px !important;
+    padding: 4px !important;
+    margin-bottom: 20px !important;
+    border: none !important;
 }
 
 .tab-btn {
-    padding: 8px 12px !important;
-    font-size: 11px !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 10px 16px !important;
+    border-radius: 30px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: rgba(255,255,255,0.6) !important;
 }
 
-/* Admin panel compacto */
+.tab-btn.active {
+    background: var(--gold) !important;
+    color: #1a1a2e !important;
+    border-bottom: none !important;
+}
+
+/* Admin panel */
 .admin-panel {
+    background: rgba(231,76,60,0.1) !important;
+    border-radius: 14px !important;
     padding: 12px !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 20px !important;
+    border: 1px solid rgba(231,76,60,0.2) !important;
 }
 
 .admin-panel h3 {
     font-size: 12px !important;
+    color: var(--danger) !important;
     margin-bottom: 10px !important;
 }
 
 .admin-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
     gap: 8px !important;
 }
 
 .btn-admin {
+    background: rgba(231,76,60,0.2) !important;
     padding: 6px 12px !important;
+    border-radius: 20px !important;
     font-size: 10px !important;
+    color: var(--danger) !important;
 }
 
-/* Seção de jogos */
+/* Jogos */
 .section-title {
     font-size: 16px !important;
     margin-bottom: 12px !important;
@@ -212,49 +233,9 @@ body {
     font-size: 14px !important;
 }
 
-.game-type {
-    font-size: 10px !important;
-}
-
-.game-card-body {
-    padding: 12px !important;
-}
-
-.game-info {
-    font-size: 11px !important;
-    margin-bottom: 8px !important;
-}
-
-.vagas-info {
-    font-size: 10px !important;
-}
-
-.price-tag {
-    font-size: 10px !important;
-    padding: 2px 8px !important;
-}
-
 .btn-inscrever {
     padding: 8px !important;
     font-size: 12px !important;
-}
-
-/* Inscrições */
-.inscricoes-container {
-    padding: 12px !important;
-}
-
-.inscricao-item {
-    padding: 12px !important;
-}
-
-.inscricao-titulo {
-    font-size: 14px !important;
-}
-
-.inscricao-detalhes {
-    font-size: 10px !important;
-    gap: 10px !important;
 }
 
 /* Modal */
@@ -264,318 +245,11 @@ body {
     max-width: 320px !important;
 }
 
-.modal-icon {
-    font-size: 40px !important;
-}
-
-.modal h2 {
-    font-size: 18px !important;
-}
-
-.modal p {
-    font-size: 12px !important;
-}
-
 .modal-buttons {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 10px !important;
 }
 
 .modal-btn {
     width: 100% !important;
-}
-
-/* Toast */
-.toast-message {
-    left: 16px !important;
-    right: 16px !important;
-    bottom: 16px !important;
-    text-align: center !important;
-}
-
-/* Loading */
-.loading {
-    padding: 30px !important;
-}
-
-.loading-spinner {
-    width: 30px !important;
-    height: 30px !important;
-}
-
-/* Empty state */
-.empty-state {
-    padding: 40px 20px !important;
-}
-
-.empty-state-icon {
-    font-size: 40px !important;
-}
-
-.empty-state h3 {
-    font-size: 16px !important;
-}
-
-.empty-state p {
-    font-size: 12px !important;
-}
-
-/* ========================================
-   PÁGINA DE LOGIN - MOBILE
-   ======================================== */
-.premium-card {
-    margin: 16px !important;
-    border-radius: 20px !important;
-}
-
-.card-header-premium {
-    padding: 20px !important;
-}
-
-.card-header-premium h1 {
-    font-size: 22px !important;
-}
-
-.card-body-premium {
-    padding: 20px !important;
-}
-
-.top-bar .container {
-    flex-direction: column !important;
-    text-align: center !important;
-}
-
-.logo-area {
-    justify-content: center !important;
-}
-
-.logo-area img {
-    height: 35px !important;
-}
-
-.logo-text h2 {
-    font-size: 16px !important;
-}
-
-.info-items {
-    justify-content: center !important;
-    gap: 12px !important;
-}
-
-.info-item {
-    font-size: 10px !important;
-}
-
-.btn-login {
-    padding: 12px !important;
-    font-size: 14px !important;
-}
-
-/* ========================================
-   PÁGINA DE DETALHES DO JOGO - MOBILE
-   ======================================== */
-.detalhe-container {
-    padding: 16px !important;
-}
-
-.hero-battle {
-    padding: 20px !important;
-}
-
-.hero-battle h1 {
-    font-size: 20px !important;
-}
-
-.badge-container {
-    gap: 8px !important;
-}
-
-.info-badge {
-    font-size: 10px !important;
-    padding: 4px 12px !important;
-}
-
-.info-grid {
-    gap: 12px !important;
-}
-
-.info-card {
-    padding: 16px !important;
-}
-
-.info-card h3 {
-    font-size: 16px !important;
-}
-
-.regras-list li, .equip-list li {
-    font-size: 12px !important;
-    padding: 8px 0 8px 20px !important;
-}
-
-.general-info {
-    padding: 16px !important;
-}
-
-.stats-row {
-    gap: 12px !important;
-}
-
-.stat-item {
-    padding: 10px !important;
-}
-
-.stat-value {
-    font-size: 20px !important;
-}
-
-.action-buttons {
-    flex-direction: column !important;
-    gap: 10px !important;
-}
-
-.btn-primary, .btn-secondary {
-    width: 100% !important;
-    justify-content: center !important;
-}
-
-/* ========================================
-   PÁGINA DE CAMPOS - MOBILE
-   ======================================== */
-.campos-container {
-    padding: 12px !important;
-}
-
-.page-header {
-    flex-direction: column !important;
-    text-align: center !important;
-    padding: 16px !important;
-}
-
-.header-title h1 {
-    font-size: 18px !important;
-}
-
-.btn-voltar {
-    padding: 8px 16px !important;
-    font-size: 12px !important;
-    width: 100% !important;
-    margin: 5px 0 !important;
-}
-
-.stats-campos {
-    gap: 10px !important;
-    margin-bottom: 16px !important;
-}
-
-.campos-grid {
-    gap: 12px !important;
-}
-
-.campo-card {
-    border-radius: 14px !important;
-}
-
-.campo-header {
-    padding: 12px !important;
-}
-
-.campo-nome {
-    font-size: 16px !important;
-}
-
-.campo-body {
-    padding: 12px !important;
-}
-
-.campo-info {
-    font-size: 11px !important;
-    margin-bottom: 8px !important;
-}
-
-.campo-descricao {
-    font-size: 11px !important;
-    padding: 8px !important;
-}
-
-/* ========================================
-   PÁGINA ADMIN - MOBILE
-   ======================================== */
-.admin-container {
-    padding: 12px !important;
-}
-
-.military-tabs {
-    margin-bottom: 16px !important;
-}
-
-.military-tab {
-    padding: 8px 12px !important;
-    font-size: 11px !important;
-}
-
-.create-game-form {
-    padding: 16px !important;
-}
-
-.form-title {
-    font-size: 16px !important;
-    margin-bottom: 16px !important;
-}
-
-.form-row {
-    flex-direction: column !important;
-    gap: 12px !important;
-}
-
-.form-group {
-    margin-bottom: 12px !important;
-}
-
-.form-group label {
-    font-size: 11px !important;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 10px !important;
-    font-size: 12px !important;
-}
-
-.btn-primary {
-    padding: 10px !important;
-    font-size: 14px !important;
-}
-
-.game-card-admin {
-    padding: 12px !important;
-}
-
-.game-card-admin h3 {
-    font-size: 15px !important;
-}
-
-.game-info {
-    font-size: 11px !important;
-}
-
-.operador-item {
-    flex-direction: column !important;
-    text-align: center !important;
-}
-
-.stat-card {
-    padding: 10px !important;
-}
-
-.stat-icon {
-    font-size: 20px !important;
-}
-
-.stat-number {
-    font-size: 20px !important;
-}
-
-.stat-label {
-    font-size: 9px !important;
 }
