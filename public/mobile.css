@@ -261,3 +261,263 @@ body {
 .empty-state p {
     font-size: 12px !important;
 }
+
+/* ========================================
+   PÁGINA DE LOGIN - MOBILE
+   ======================================== */
+.premium-card {
+    margin: 16px !important;
+    border-radius: 20px !important;
+}
+
+.card-header-premium {
+    padding: 20px !important;
+}
+
+.card-header-premium h1 {
+    font-size: 22px !important;
+}
+
+.card-body-premium {
+    padding: 20px !important;
+}
+
+.top-bar .container {
+    flex-direction: column !important;
+    text-align: center !important;
+}
+
+.logo-area {
+    justify-content: center !important;
+}
+
+.logo-area img {
+    height: 35px !important;
+}
+
+.logo-text h2 {
+    font-size: 16px !important;
+}
+
+.info-items {
+    justify-content: center !important;
+    gap: 12px !important;
+}
+
+.info-item {
+    font-size: 10px !important;
+}
+
+.btn-login {
+    padding: 12px !important;
+    font-size: 14px !important;
+}
+
+/* ========================================
+   PÁGINA DE DETALHES DO JOGO - MOBILE
+   ======================================== */
+.detalhe-container {
+    padding: 16px !important;
+}
+
+.hero-battle {
+    padding: 20px !important;
+}
+
+.hero-battle h1 {
+    font-size: 20px !important;
+}
+
+.badge-container {
+    gap: 8px !important;
+}
+
+.info-badge {
+    font-size: 10px !important;
+    padding: 4px 12px !important;
+}
+
+.info-grid {
+    gap: 12px !important;
+}
+
+.info-card {
+    padding: 16px !important;
+}
+
+.info-card h3 {
+    font-size: 16px !important;
+}
+
+.regras-list li, .equip-list li {
+    font-size: 12px !important;
+    padding: 8px 0 8px 20px !important;
+}
+
+.general-info {
+    padding: 16px !important;
+}
+
+.stats-row {
+    gap: 12px !important;
+}
+
+.stat-item {
+    padding: 10px !important;
+}
+
+.stat-value {
+    font-size: 20px !important;
+}
+
+.action-buttons {
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.btn-primary, .btn-secondary {
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+/* ========================================
+   PÁGINA DE CAMPOS - MOBILE
+   ======================================== */
+.campos-container {
+    padding: 12px !important;
+}
+
+.page-header {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 16px !important;
+}
+
+.header-title h1 {
+    font-size: 18px !important;
+}
+
+.btn-voltar {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+    width: 100% !important;
+    margin: 5px 0 !important;
+}
+
+.stats-campos {
+    gap: 10px !important;
+    margin-bottom: 16px !important;
+}
+
+.campos-grid {
+    gap: 12px !important;
+}
+
+.campo-card {
+    border-radius: 14px !important;
+}
+
+.campo-header {
+    padding: 12px !important;
+}
+
+.campo-nome {
+    font-size: 16px !important;
+}
+
+.campo-body {
+    padding: 12px !important;
+}
+
+.campo-info {
+    font-size: 11px !important;
+    margin-bottom: 8px !important;
+}
+
+.campo-descricao {
+    font-size: 11px !important;
+    padding: 8px !important;
+}
+
+/* ========================================
+   PÁGINA ADMIN - MOBILE
+   ======================================== */
+.admin-container {
+    padding: 12px !important;
+}
+
+.military-tabs {
+    margin-bottom: 16px !important;
+}
+
+.military-tab {
+    padding: 8px 12px !important;
+    font-size: 11px !important;
+}
+
+.create-game-form {
+    padding: 16px !important;
+}
+
+.form-title {
+    font-size: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.form-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.form-group {
+    margin-bottom: 12px !important;
+}
+
+.form-group label {
+    font-size: 11px !important;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px !important;
+    font-size: 12px !important;
+}
+
+.btn-primary {
+    padding: 10px !important;
+    font-size: 14px !important;
+}
+
+.game-card-admin {
+    padding: 12px !important;
+}
+
+.game-card-admin h3 {
+    font-size: 15px !important;
+}
+
+.game-info {
+    font-size: 11px !important;
+}
+
+.operador-item {
+    flex-direction: column !important;
+    text-align: center !important;
+}
+
+.stat-card {
+    padding: 10px !important;
+}
+
+.stat-icon {
+    font-size: 20px !important;
+}
+
+.stat-number {
+    font-size: 20px !important;
+}
+
+.stat-label {
+    font-size: 9px !important;
+}

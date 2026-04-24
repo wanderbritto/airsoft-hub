@@ -524,6 +524,21 @@
             }
         }
     </style>
+
+    <script>
+    // Detectar se é celular e carregar CSS específico com timestamp para evitar cache
+    if (window.innerWidth <= 768) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/mobile.css?t=' + Date.now();
+        document.head.appendChild(link);
+        
+        // Adicionar classe para identificar modo mobile
+        document.body.classList.add('mobile-mode');
+        console.log('📱 Modo mobile ativado no admin');
+    }
+    </script>
+
 </head>
 <body>
     <div class="admin-container">

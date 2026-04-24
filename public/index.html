@@ -557,6 +557,18 @@
     }
 
     </style>
+
+    <script>
+    // Detectar se é celular e carregar CSS específico
+    if (window.innerWidth <= 768) {
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/mobile.css?t=' + Date.now();
+        document.head.appendChild(link);
+        document.body.classList.add('mobile-mode');
+    }
+    </script>
+
 </head>
 <body>
     <div class="hero-overlay"></div>
