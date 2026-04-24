@@ -469,6 +469,93 @@
                 gap: 0;
             }
         }
+          
+            /* Responsividade para página de login - adicione no final do style */
+    @media (max-width: 768px) {
+        .top-bar .container {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .logo-area {
+            justify-content: center;
+        }
+        
+        .logo-area img {
+            height: 40px !important;
+        }
+        
+        .logo-text h2 {
+            font-size: 18px;
+        }
+        
+        .logo-text p {
+            font-size: 10px;
+        }
+        
+        .info-items {
+            justify-content: center;
+        }
+        
+        .info-item {
+            font-size: 11px;
+        }
+        
+        .card-header-premium h1 {
+            font-size: 20px;
+        }
+        
+        .card-header-premium p {
+            font-size: 12px;
+        }
+        
+        .card-body-premium {
+            padding: 20px;
+        }
+        
+        .form-group-premium input {
+            padding: 10px 10px 10px 40px;
+            font-size: 14px;
+        }
+        
+        .btn-login {
+            padding: 12px;
+            font-size: 14px;
+        }
+        
+        .form-row {
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .footer p {
+            font-size: 10px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .premium-card {
+            max-width: 100%;
+            margin: 0 10px;
+        }
+        
+        .card-header-premium {
+            padding: 20px;
+        }
+        
+        .card-header-premium h1 {
+            font-size: 18px;
+        }
+        
+        .feature-badge {
+            font-size: 9px;
+        }
+        
+        .military-stars span {
+            font-size: 10px;
+        }
+    }
+
     </style>
 </head>
 <body>

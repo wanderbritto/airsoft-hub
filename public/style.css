@@ -815,3 +815,218 @@ body::before {
 .logo-img:hover {
     transform: scale(1.05);
 }
+
+/* ========== RESPONSIVIDADE PARA CELULAR ========== */
+
+/* Tablets e celulares grandes (até 1024px) */
+@media (max-width: 1024px) {
+    .dashboard-container, .admin-container, .campos-container {
+        padding: 20px 15px;
+    }
+    
+    .military-header {
+        padding: 20px;
+    }
+    
+    .header-top {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .welcome-section {
+        text-align: center;
+    }
+    
+    .welcome-section > div {
+        justify-content: center;
+    }
+    
+    .rank-section {
+        text-align: center;
+    }
+    
+    .stats-grid, .quick-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+    /* Ajustes gerais */
+    body {
+        font-size: 14px;
+    }
+    
+    .dashboard-container, .admin-container {
+        padding: 15px;
+    }
+    
+    /* Header */
+    .military-header {
+        padding: 15px;
+    }
+    
+    .military-header::before {
+        font-size: 50px;
+    }
+    
+    .welcome-section h1 {
+        font-size: 22px;
+    }
+    
+    .welcome-section p {
+        font-size: 11px;
+    }
+    
+    /* Logo */
+    .welcome-section img {
+        height: 70px !important;
+    }
+    
+    /* Badges e botões */
+    .rank-badge {
+        font-size: 10px;
+        padding: 5px 12px;
+    }
+    
+    .logout-btn, .btn-nav {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+    
+    /* Tabs */
+    .military-tabs {
+        justify-content: center;
+    }
+    
+    .tab-btn, .military-tab {
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+    
+    /* Cards de estatísticas */
+    .stat-card, .quick-stats .stat-card {
+        padding: 15px;
+    }
+    
+    .stat-number {
+        font-size: 24px;
+    }
+    
+    .stat-icon {
+        font-size: 28px;
+    }
+    
+    /* Cards de jogos */
+    .game-card-header {
+        padding: 15px;
+    }
+    
+    .game-title {
+        font-size: 18px;
+    }
+    
+    .game-card-body {
+        padding: 15px;
+    }
+    
+    .game-info {
+        font-size: 12px;
+    }
+    
+    .btn-inscrever {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    /* Modal */
+    .modal-content {
+        padding: 25px;
+        margin: 20px;
+        width: 95%;
+    }
+    
+    .modal-icon {
+        font-size: 50px;
+    }
+    
+    .modal h2 {
+        font-size: 20px;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .modal-btn {
+        padding: 10px 20px;
+    }
+    
+    /* Formulários */
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    /* Admin panel */
+    .admin-actions {
+        flex-direction: column;
+    }
+    
+    .btn-admin {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Inscrições */
+    .inscricao-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .inscricao-detalhes {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+    .stats-grid, .quick-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .welcome-section h1 {
+        font-size: 18px;
+    }
+    
+    .welcome-section img {
+        height: 50px !important;
+    }
+    
+    .section-title {
+        font-size: 18px;
+    }
+    
+    .game-title {
+        font-size: 16px;
+    }
+    
+    .rank-badge {
+        font-size: 9px;
+    }
+}
