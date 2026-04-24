@@ -1,8 +1,9 @@
 /* ========================================
-   AIRSOFT HUB - LAYOUT MOBILE PROFISSIONAL
-   Design compacto e organizado para celular
+   AIRSOFT HUB - CSS MOBILE CORRETO
+   Compatível com as classes do dashboard.html
    ======================================== */
 
+/* Reset e variáveis */
 * {
     margin: 0;
     padding: 0;
@@ -11,12 +12,10 @@
 
 :root {
     --primary: #2ecc71;
-    --primary-dark: #27ae60;
     --danger: #e74c3c;
     --warning: #f39c12;
-    --dark: #1a1a2e;
-    --gray: #2d2d44;
     --gold: #ffd700;
+    --dark: #1a1a2e;
 }
 
 body {
@@ -25,511 +24,240 @@ body {
     color: #fff;
 }
 
-/* ========================================
-   HEADER COMPACTO - ESTILO APP
-   ======================================== */
-.app-header {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    padding: 10px 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 215, 0, 0.15);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+/* Container responsivo */
+.dashboard-container {
+    max-width: 100% !important;
+    padding: 12px !important;
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Header compacto */
+.military-header {
+    padding: 12px !important;
+    margin-bottom: 12px !important;
 }
 
-.header-left img {
-    height: 35px;
-    width: auto;
+.header-top {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 10px !important;
 }
 
-.header-left h1 {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--gold);
-    margin: 0;
+.welcome-section h1 {
+    font-size: 18px !important;
 }
 
-.header-left p {
-    display: none;
+.welcome-section p {
+    display: none !important;
 }
 
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.welcome-section img {
+    height: 40px !important;
 }
 
-.admin-badge-small {
-    background: rgba(231, 76, 60, 0.2);
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 9px;
-    font-weight: 600;
-    color: var(--danger);
+.rank-section {
+    text-align: center !important;
 }
 
-.logout-btn-small {
-    background: rgba(231, 76, 60, 0.15);
-    border: none;
-    padding: 6px 12px;
-    border-radius: 20px;
-    color: var(--danger);
-    font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
+.rank-badge {
+    font-size: 10px !important;
+    padding: 4px 10px !important;
 }
 
-/* Welcome text */
-.welcome-text {
-    padding: 12px 16px 0;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.6);
+.logout-btn {
+    padding: 6px 15px !important;
+    font-size: 12px !important;
+    margin-top: 5px !important;
 }
 
-.welcome-text span {
-    color: var(--gold);
-    font-weight: 600;
+/* Stats cards - 2 colunas */
+.quick-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 16px !important;
 }
 
-/* ========================================
-   STATS CARDS - 2x2 COMPACTO
-   ======================================== */
-.stats-grid-mobile {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 12px 16px;
+.stat-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 14px !important;
+    padding: 10px !important;
+    text-align: center !important;
 }
 
-.stat-card-mobile {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 14px;
-    padding: 12px 8px;
-    text-align: center;
-    transition: all 0.2s;
+.stat-icon {
+    font-size: 22px !important;
+    margin-bottom: 4px !important;
 }
 
-.stat-card-mobile:active {
-    transform: scale(0.97);
+.stat-number {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    color: var(--primary) !important;
 }
 
-.stat-icon-mobile {
-    font-size: 22px;
-    margin-bottom: 4px;
+.stat-label {
+    font-size: 9px !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    margin-top: 4px !important;
 }
 
-.stat-number-mobile {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--primary);
-    line-height: 1.2;
+/* Tabs menores */
+.military-tabs {
+    margin-bottom: 16px !important;
+    gap: 6px !important;
 }
 
-.stat-label-mobile {
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
-    margin-top: 4px;
+.tab-btn {
+    padding: 8px 12px !important;
+    font-size: 11px !important;
 }
 
-/* ========================================
-   ADMIN PANEL COMPACTO
-   ======================================== */
-.admin-panel-mobile {
-    background: rgba(231, 76, 60, 0.1);
-    margin: 8px 16px 16px;
-    padding: 12px;
-    border-radius: 14px;
-    border: 1px solid rgba(231, 76, 60, 0.25);
+/* Admin panel compacto */
+.admin-panel {
+    padding: 12px !important;
+    margin-bottom: 16px !important;
 }
 
-.admin-title-mobile {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--danger);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.admin-panel h3 {
+    font-size: 12px !important;
+    margin-bottom: 10px !important;
 }
 
-.admin-buttons-mobile {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+.admin-actions {
+    gap: 8px !important;
 }
 
-.btn-admin-mobile {
-    background: rgba(231, 76, 60, 0.2);
-    border: none;
-    padding: 7px 14px;
-    border-radius: 20px;
-    color: var(--danger);
-    font-size: 11px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
+.btn-admin {
+    padding: 6px 12px !important;
+    font-size: 10px !important;
 }
 
-.btn-admin-mobile:active {
-    transform: scale(0.96);
+/* Seção de jogos */
+.section-title {
+    font-size: 16px !important;
+    margin-bottom: 12px !important;
 }
 
-/* ========================================
-   TABS - ESTILO APP
-   ======================================== */
-.app-tabs {
-    display: flex;
-    background: rgba(255, 255, 255, 0.05);
-    margin: 0 16px 16px;
-    border-radius: 30px;
-    padding: 4px;
+.games-grid {
+    gap: 12px !important;
 }
 
-.app-tab {
-    flex: 1;
-    background: transparent;
-    border: none;
-    padding: 10px;
-    border-radius: 25px;
-    font-size: 12px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.2s;
+.game-card {
+    border-radius: 14px !important;
 }
 
-.app-tab.active {
-    background: var(--primary);
-    color: #fff;
-    box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
+.game-card-header {
+    padding: 12px !important;
 }
 
-/* ========================================
-   LISTA DE JOGOS - CARDS COMPACTOS
-   ======================================== */
-.jogos-list {
-    padding: 0 16px;
-    display: flex;
+.game-title {
+    font-size: 14px !important;
+}
+
+.game-type {
+    font-size: 10px !important;
+}
+
+.game-card-body {
+    padding: 12px !important;
+}
+
+.game-info {
+    font-size: 11px !important;
+    margin-bottom: 8px !important;
+}
+
+.vagas-info {
+    font-size: 10px !important;
+}
+
+.price-tag {
+    font-size: 10px !important;
+    padding: 2px 8px !important;
+}
+
+.btn-inscrever {
+    padding: 8px !important;
+    font-size: 12px !important;
+}
+
+/* Inscrições */
+.inscricoes-container {
+    padding: 12px !important;
+}
+
+.inscricao-item {
+    padding: 12px !important;
+}
+
+.inscricao-titulo {
+    font-size: 14px !important;
+}
+
+.inscricao-detalhes {
+    font-size: 10px !important;
+    gap: 10px !important;
+}
+
+/* Modal */
+.modal-content {
+    padding: 20px !important;
+    width: 90% !important;
+    max-width: 320px !important;
+}
+
+.modal-icon {
+    font-size: 40px !important;
+}
+
+.modal h2 {
+    font-size: 18px !important;
+}
+
+.modal p {
+    font-size: 12px !important;
+}
+
+.modal-buttons {
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
+    gap: 10px !important;
 }
 
-.jogo-item {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 14px;
-    padding: 12px;
-    cursor: pointer;
-    transition: all 0.2s;
+.modal-btn {
+    width: 100% !important;
 }
 
-.jogo-item:active {
-    transform: scale(0.98);
+/* Toast */
+.toast-message {
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 16px !important;
+    text-align: center !important;
 }
 
-.jogo-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
+/* Loading */
+.loading {
+    padding: 30px !important;
 }
 
-.jogo-titulo {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--gold);
+.loading-spinner {
+    width: 30px !important;
+    height: 30px !important;
 }
 
-.jogo-tipo {
-    font-size: 9px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 3px 8px;
-    border-radius: 12px;
+/* Empty state */
+.empty-state {
+    padding: 40px 20px !important;
 }
 
-.jogo-info-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
+.empty-state-icon {
+    font-size: 40px !important;
 }
 
-.jogo-vagas {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 8px 0;
+.empty-state h3 {
+    font-size: 16px !important;
 }
 
-.vagas-text {
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.vagas-progress {
-    flex: 1;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    margin: 0 10px;
-    overflow: hidden;
-}
-
-.vagas-fill {
-    background: var(--primary);
-    height: 100%;
-    border-radius: 10px;
-}
-
-.jogo-preco {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--primary);
-}
-
-.btn-inscrever-mobile {
-    width: 100%;
-    background: var(--primary);
-    border: none;
-    padding: 10px;
-    border-radius: 12px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 12px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-inscrever-mobile:active {
-    transform: scale(0.97);
-}
-
-/* ========================================
-   INSCRIÇÕES
-   ======================================== */
-.inscricoes-list {
-    padding: 0 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.inscricao-card {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 14px;
-    padding: 12px;
-    border-left: 3px solid var(--primary);
-}
-
-.inscricao-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gold);
-    margin-bottom: 6px;
-}
-
-.inscricao-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* ========================================
-   MODAL
-   ======================================== */
-.app-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
-
-.app-modal.active {
-    display: flex;
-}
-
-.app-modal-content {
-    background: #1a1a2e;
-    border-radius: 24px;
-    padding: 24px;
-    width: 85%;
-    max-width: 280px;
-    text-align: center;
-}
-
-.app-modal-icon {
-    font-size: 40px;
-    margin-bottom: 12px;
-}
-
-.app-modal-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--gold);
-    margin-bottom: 10px;
-}
-
-.app-modal-text {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 20px;
-}
-
-.app-modal-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.app-modal-btn {
-    flex: 1;
-    padding: 10px;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 13px;
-    cursor: pointer;
-    border: none;
-}
-
-.app-modal-btn.confirm {
-    background: var(--primary);
-    color: #fff;
-}
-
-.app-modal-btn.cancel {
-    background: rgba(231, 76, 60, 0.2);
-    color: var(--danger);
-}
-
-/* ========================================
-   TOAST
-   ======================================== */
-.app-toast {
-    position: fixed;
-    bottom: 20px;
-    left: 16px;
-    right: 16px;
-    background: var(--primary);
-    color: #fff;
-    padding: 12px;
-    border-radius: 30px;
-    text-align: center;
-    font-size: 13px;
-    font-weight: 500;
-    z-index: 1001;
-    display: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.app-toast.error {
-    background: var(--danger);
-}
-
-/* ========================================
-   LOADING & EMPTY
-   ======================================== */
-.app-loading {
-    text-align: center;
-    padding: 40px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.app-empty {
-    text-align: center;
-    padding: 50px 20px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.app-empty-icon {
-    font-size: 48px;
-    margin-bottom: 12px;
-    opacity: 0.5;
-}
-
-.app-empty h3 {
-    font-size: 16px;
-    margin-bottom: 6px;
-}
-
-.app-empty p {
-    font-size: 12px;
-}
-
-/* ========================================
-   BOTÃO VOLTAR
-   ======================================== */
-.back-button {
-    background: rgba(255, 255, 255, 0.08);
-    border: none;
-    padding: 8px 16px;
-    border-radius: 20px;
-    color: #fff;
-    font-size: 12px;
-    margin: 0 16px 16px;
-    cursor: pointer;
-}
-
-/* ========================================
-   FORMULÁRIOS COMPACTOS
-   ======================================== */
-.form-group-mobile {
-    margin-bottom: 14px;
-}
-
-.form-group-mobile label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.form-group-mobile input,
-.form-group-mobile select,
-.form-group-mobile textarea {
-    width: 100%;
-    padding: 10px 12px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: #fff;
-    font-size: 13px;
-}
-
-.form-row-mobile {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-
-/* ========================================
-   TABLET
-   ======================================== */
-@media (min-width: 768px) {
-    body {
-        max-width: 500px;
-        margin: 0 auto;
-        background: #0f0f1a;
-    }
+.empty-state p {
+    font-size: 12px !important;
 }
