@@ -725,3 +725,14 @@ body {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* FORÇAR COR DO FUNDO */
+body {
+    background: #0f0f1a !important;
+}
+
+.dashboard-container,
+.admin-container,
+.campos-container {
+    background: transparent !important;
+}
