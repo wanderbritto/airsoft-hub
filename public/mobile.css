@@ -402,3 +402,24 @@ body {
     display: none !important;
     content: none !important;
 }
+
+/* ========================================
+   CORREÇÃO ÍCONES DUPLICADOS NO LOGIN MOBILE
+   ======================================== */
+
+/* Esconder completamente os ícones dentro do input-wrapper no mobile */
+.login-page .input-with-icon .input-icon,
+.input-with-icon .input-icon {
+    display: none !important;
+}
+
+/* Remover o padding-left dos inputs para não ficar espaço vazio */
+.login-page .input-with-icon input,
+.input-with-icon input {
+    padding-left: 15px !important;
+}
+
+/* Garantir que os ícones não apareçam em nenhum formulário no mobile */
+.form-group-premium .input-with-icon .input-icon {
+    display: none !important;
+}
