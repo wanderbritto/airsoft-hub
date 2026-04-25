@@ -893,13 +893,13 @@
             }
         });
 
-                // Criar novo jogo - Versão completa
+        // Criar novo jogo - Versão completa (MODAL)
         document.getElementById('criarJogoFormAdmin')?.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             // Validar campos obrigatórios
             const titulo = document.getElementById('criarTitulo').value;
-            const campo = document.getElementById('criarCampoSelect').value;
+            const campo = document.getElementById('criarCampo').value;
             const data = document.getElementById('criarData').value;
             const horario = document.getElementById('criarHorario').value;
             const vagas = parseInt(document.getElementById('criarVagas').value);
@@ -923,8 +923,6 @@
                 criado_por: usuarioLogado?.id || 1
             };
             
-            console.log('Enviando jogo:', novoJogo);
-            
             try {
                 const response = await fetch('/api/admin/criar-jogo', {
                     method: 'POST',
@@ -936,15 +934,12 @@
                 
                 if (response.ok) {
                     mostrarToast('✅ Operação criada com sucesso!', 'success');
-                    fecharModalCriar();
-                    carregarJogos();
+                    fecharModalCriarJogo();
+                    carregarJogosAdmin();
                     atualizarEstatisticas();
                     
                     // Limpar formulário
                     document.getElementById('criarJogoFormAdmin').reset();
-                    document.getElementById('criarCampoSelect').value = '';
-                    document.getElementById('criarData').value = '';
-                    document.getElementById('criarHorario').value = '';
                     
                 } else {
                     mostrarToast(resultado.erro || 'Erro ao criar operação', 'error');

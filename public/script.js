@@ -1,4 +1,5 @@
 let usuarioLogado = null;
+let emailParaVerificar = null;
 
 function mostrarCadastro() {
     document.getElementById('loginCard').style.display = 'none';
@@ -43,6 +44,7 @@ async function carregarInfoInicial() {
     }
 }
 
+// Login
 document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -72,6 +74,7 @@ document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
     }
 });
 
+// Cadastro com verificação de email
 document.getElementById('cadastroForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     
@@ -85,6 +88,12 @@ document.getElementById('cadastroForm')?.addEventListener('submit', async (e) =>
         senha: document.getElementById('cadSenha').value
     };
     
+    // Validar senha (mínimo 6 caracteres)
+    if (dados.senha.length < 6) {
+        mostrarMensagem('A senha deve ter no mínimo 6 caracteres', 'erro');
+        return;
+    }
+    
     try {
         const response = await fetch('/api/cadastro', {
             method: 'POST',
@@ -95,9 +104,17 @@ document.getElementById('cadastroForm')?.addEventListener('submit', async (e) =>
         const data = await response.json();
         
         if (response.ok) {
-            mostrarMensagem('Cadastro realizado com sucesso! Faça login', 'sucesso');
-            mostrarLogin();
-            document.getElementById('cadastroForm').reset();
+            if (data.precisaVerificar) {
+                // Abrir modal de verificação
+                emailParaVerificar = data.email;
+                document.getElementById('verificarEmail').textContent = data.email;
+                document.getElementById('verificarModal').classList.add('active');
+                mostrarMensagem('Código de verificação enviado para seu email!', 'sucesso');
+            } else {
+                mostrarMensagem('Cadastro realizado com sucesso! Faça login', 'sucesso');
+                mostrarLogin();
+                document.getElementById('cadastroForm').reset();
+            }
         } else {
             mostrarMensagem(data.erro || 'Erro no cadastro', 'erro');
         }
@@ -105,6 +122,65 @@ document.getElementById('cadastroForm')?.addEventListener('submit', async (e) =>
         mostrarMensagem('Erro ao conectar com servidor', 'erro');
     }
 });
+
+// Função para confirmar verificação
+async function confirmarVerificacao() {
+    const codigo = document.getElementById('codigoVerificacao').value;
+    
+    if (!codigo || codigo.length !== 6) {
+        mostrarMensagem('Digite o código de 6 dígitos', 'erro');
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/verificar-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailParaVerificar, codigo: codigo })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok) {
+            mostrarMensagem('✅ Email verificado! Agora você pode fazer login.', 'sucesso');
+            fecharModalVerificacao();
+            mostrarLogin();
+            document.getElementById('cadastroForm').reset();
+            document.getElementById('codigoVerificacao').value = '';
+        } else {
+            mostrarMensagem(data.erro || 'Código inválido ou expirado', 'erro');
+        }
+    } catch (error) {
+        mostrarMensagem('Erro ao verificar código', 'erro');
+    }
+}
+
+// Função para reenviar código
+async function reenviarCodigo() {
+    if (!emailParaVerificar) return;
+    
+    try {
+        const response = await fetch('/api/reenviar-codigo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: emailParaVerificar })
+        });
+        
+        if (response.ok) {
+            mostrarMensagem('Novo código enviado para seu email!', 'sucesso');
+        } else {
+            mostrarMensagem('Erro ao reenviar código', 'erro');
+        }
+    } catch (error) {
+        mostrarMensagem('Erro ao reenviar', 'erro');
+    }
+}
+
+function fecharModalVerificacao() {
+    document.getElementById('verificarModal').classList.remove('active');
+    emailParaVerificar = null;
+    document.getElementById('codigoVerificacao').value = '';
+}
 
 function verificarLogin() {
     const usuario = localStorage.getItem('usuario');
