@@ -736,3 +736,14 @@ body {
 .campos-container {
     background: transparent !important;
 }
+
+/* Corrigir ícones duplicados no login (mobile) */
+@media (max-width: 768px) {
+    .input-with-icon .input-icon {
+        display: none !important;
+    }
+    
+    .form-group-premium input {
+        padding-left: 15px !important;
+    }
+}
