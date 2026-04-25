@@ -715,8 +715,8 @@
         </div>
     </div>
 
-        <!-- Modal de Criar Jogo - Versão Profissional -->
-    <div id="criarModal" class="modal">
+        <!-- Modal de Criar Jogo - Versão Profissional com Campos Text -->
+    <div id="criarJogoModal" class="modal">
         <div class="modal-content" style="max-width: 600px; max-height: 90vh; overflow-y: auto;">
             <div class="modal-icon">🎯</div>
             <h2>Criar Nova Operação</h2>
@@ -724,25 +724,19 @@
             
             <form id="criarJogoFormAdmin">
                 <!-- Linha 1: Título e Campo -->
-                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <div class="form-row" style="margin-bottom: 15px;">
                     <div class="form-group">
                         <label>Título da Operação <span style="color: var(--danger);">*</span></label>
                         <input type="text" id="criarTitulo" required placeholder="Ex: OPERAÇÃO TROVÃO">
                     </div>
                     <div class="form-group">
                         <label>Campo <span style="color: var(--danger);">*</span></label>
-                        <select id="criarCampoSelect" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; color: white;">
-                            <option value="">Selecione um campo</option>
-                            <option value="Arena Sul">Arena Sul</option>
-                            <option value="Campo Montanha">Campo Montanha</option>
-                            <option value="Floresta Negra">Floresta Negra</option>
-                            <option value="Base Militar">Base Militar</option>
-                        </select>
+                        <input type="text" id="criarCampo" required placeholder="Ex: Arena Sul, Campo Montanha">
                     </div>
                 </div>
 
                 <!-- Linha 2: Data e Horário -->
-                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <div class="form-row" style="margin-bottom: 15px;">
                     <div class="form-group">
                         <label>Data <span style="color: var(--danger);">*</span></label>
                         <input type="date" id="criarData" required>
@@ -754,17 +748,10 @@
                 </div>
 
                 <!-- Linha 3: Tipo de Jogo e Vagas -->
-                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <div class="form-row" style="margin-bottom: 15px;">
                     <div class="form-group">
                         <label>Tipo de Jogo</label>
-                        <select id="criarTipo" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; color: white;">
-                            <option value="Mata-Mata">Mata-Mata</option>
-                            <option value="Captura da Bandeira">Captura da Bandeira</option>
-                            <option value="Resgate de Reféns">Resgate de Reféns</option>
-                            <option value="Último Sobrevivente">Último Sobrevivente</option>
-                            <option value="Zumbi vs Humanos">Zumbi vs Humanos</option>
-                            <option value="Operação Especial">Operação Especial</option>
-                        </select>
+                        <input type="text" id="criarTipo" placeholder="Ex: Mata-Mata, Captura da Bandeira">
                     </div>
                     <div class="form-group">
                         <label>Número de Vagas <span style="color: var(--danger);">*</span></label>
@@ -790,20 +777,20 @@
                 <!-- Linha 6: Regras -->
                 <div class="form-group" style="margin-bottom: 15px;">
                     <label>Regras do Jogo</label>
-                    <textarea id="criarRegras" rows="4" placeholder="• Cada jogador tem 3 vidas&#10;• Proibido tirar máscara durante o jogo&#10;• Tempo máximo: 30 minutos&#10;• Revive permitido apenas no base" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; color: white; resize: vertical;"></textarea>
+                    <textarea id="criarRegras" rows="4" placeholder="• Cada jogador tem 3 vidas&#10;• Proibido tirar máscara durante o jogo&#10;• Tempo máximo: 30 minutos" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; color: white; resize: vertical;"></textarea>
                     <small style="color: rgba(255,255,255,0.4); font-size: 11px;">Digite uma regra por linha, começando com •</small>
                 </div>
 
                 <!-- Linha 7: Equipamentos -->
                 <div class="form-group" style="margin-bottom: 20px;">
                     <label>Equipamentos Obrigatórios</label>
-                    <textarea id="criarEquipamentos" rows="3" placeholder="• Óculos de proteção&#10;• Máscara facial&#10;• Coldre para pistola&#10;• Rádio comunicador" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; color: white; resize: vertical;"></textarea>
+                    <textarea id="criarEquipamentos" rows="3" placeholder="• Óculos de proteção&#10;• Máscara facial&#10;• Coldre para pistola" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,215,0,0.2); border-radius: 12px; color: white; resize: vertical;"></textarea>
                     <small style="color: rgba(255,255,255,0.4); font-size: 11px;">Liste os equipamentos necessários, um por linha</small>
                 </div>
 
                 <div class="modal-buttons" style="margin-top: 10px;">
                     <button type="submit" class="modal-btn confirm">🚀 LANÇAR OPERAÇÃO</button>
-                    <button type="button" class="modal-btn cancel" onclick="fecharModalCriar()">CANCELAR</button>
+                    <button type="button" class="modal-btn cancel" onclick="fecharModalCriarJogo()">CANCELAR</button>
                 </div>
             </form>
         </div>
